@@ -4,6 +4,12 @@ import pandas as pd
 
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 
+# to save the face pic to path
+path = "dataset"
+
+face_id = input("\n Type the face ID number: ")
+
+count = 0
 
 # READ VIDEO
 capture = cv2.VideoCapture(0)
@@ -24,12 +30,19 @@ while True:
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = frame[y:y+h, x:x+w]
 
+        count += 1
+
+        cv2.imwrite("dataset/User." + str(face_id) + "." + str(count) + ".jpg", roi_gray)
+
+
     # SHOW IMAGE
     cv2.imshow("image", frame)
 
 
-    k = cv2.waitKey(5) & 0xff
+    k = cv2.waitKey(30) & 0xff
     if k == 'q':
+        break
+    elif count == 30:
         break
 
 # RELEASE VIDEO
