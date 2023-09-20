@@ -1,3 +1,3 @@
 # cv
 
-I was just learning how to use Open CV by training a face recognition model for my face
+I was just learning how to use the Open CV package by training a face recognition and detection model for my face
